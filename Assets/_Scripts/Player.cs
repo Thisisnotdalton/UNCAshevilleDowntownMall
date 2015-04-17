@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 	//how quickly the player moves
-	public float moveSpeed=3;
+	public float moveSpeed=8;
 	//how quickly the player camera rotates with mouse
 	public float cameraSpeed=12;
 
@@ -17,10 +17,6 @@ public class Player : MonoBehaviour {
 	private CharacterController charCon;
 	//reference to camera transform
 	private Transform playerCam;
-
-
-	//speed of gravity
-	public float gravity = 9.8f;
 
 	void Start () {
 		//find camera and character controller
@@ -39,17 +35,18 @@ public class Player : MonoBehaviour {
 			lookVector=Vector3.zero;
 		}
 
-		playerCam.rotation = Quaternion.Euler (playerCam.rotation.eulerAngles + lookVector);
+		//playerCam.rotation = Quaternion.Euler (playerCam.rotation.eulerAngles + lookVector);
+		playerCam.rotation *= Quaternion.Euler (lookVector);
 		//face player towards camera
 		//normalize transform forward to not have y data
-		transform.forward = new Vector3(playerCam.forward.x,0,playerCam.forward.z).normalized;
+		transform.forward = playerCam.forward;
 
 		
 		//set camera rotation to current transform rotation
-		playerCam.localRotation = Quaternion.Euler( new Vector3(playerCam.localRotation.eulerAngles.x,0,0));
+		playerCam.localRotation = Quaternion.identity;
 
 		//move player in direction transform is facing
-		moveVector = (Input.GetAxis ("Horizontal")*transform.right + Input.GetAxis ("Vertical")*transform.forward-transform.up*gravity) * moveSpeed *(Input.GetAxis("Sprint")!=0?3:1)* Time.deltaTime;
+		moveVector = (Input.GetAxis ("Horizontal")*transform.right + Input.GetAxis ("Vertical")*transform.forward+Vector3.up*(Input.GetAxis("Jump"))) * moveSpeed *(Input.GetAxis("Sprint")!=0?3:1)* Time.deltaTime;
 		charCon.Move (moveVector);
 	}
 }
