@@ -18,12 +18,21 @@ public class Player : MonoBehaviour {
 	//reference to camera transform
 	private Transform playerCam;
 
+
+	//references to the help text
+	private GameObject smallHelp,fullHelp;
 	void Start () {
 		//find camera and character controller
 		charCon = GetComponent<CharacterController> ();
 		playerCam = transform.Find ("Camera");
 		centerOfScreen = new Vector3 (Screen.width, Screen.height, 0) / 2;
-		minRotateDistance = (Screen.width>Screen.height?Screen.height:Screen.width)*0.375f;
+		minRotateDistance = (Screen.width > Screen.height ? Screen.height : Screen.width) * 0.375f;
+	}
+
+	public void Awake(){
+		smallHelp = GameObject.Find ("Small Help Text").gameObject;
+		fullHelp = GameObject.Find ("Full Help Text").gameObject;
+		fullHelp.SetActive (false);
 	}
 	
 	void Update () {
@@ -33,6 +42,11 @@ public class Player : MonoBehaviour {
 			lookVector = (new Vector3 (-Input.mousePosition.y + Screen.height / 2, Input.mousePosition.x - Screen.width / 2, 0)).normalized * Time.deltaTime* Mathf.Pow(rotateSpeedFactor,2) * cameraSpeed;
 		} else {
 			lookVector=Vector3.zero;
+		}
+
+		if (Input.GetKeyDown (KeyCode.H)) {
+			fullHelp.SetActive(!fullHelp.activeSelf);
+			smallHelp.SetActive(!smallHelp.activeSelf);
 		}
 
 		//playerCam.rotation = Quaternion.Euler (playerCam.rotation.eulerAngles + lookVector);
