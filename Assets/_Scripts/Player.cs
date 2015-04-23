@@ -53,7 +53,7 @@ public class Player : MonoBehaviour {
 		//update camera rotation
 		float rotateSpeedFactor = Vector3.Distance (centerOfScreen, Input.mousePosition) / minRotateDistance;
 		if (rotateSpeedFactor>1) {
-				lookVector = (new Vector3 (2*(-Input.mousePosition.y/Screen.height + Screen.height / 2), 2*(Input.mousePosition.x - Screen.width / 2)/Screen.width, 0)).normalized * Time.deltaTime* Mathf.Pow(rotateSpeedFactor,2) * cameraSpeed;
+				lookVector = (new Vector3 (-2*Input.mousePosition.y/Screen.height + 1, 2*Input.mousePosition.x/Screen.width - 1, 0)).normalized * Time.deltaTime* Mathf.Pow(rotateSpeedFactor,2) * cameraSpeed;
 		} else {
 			lookVector=Vector3.zero;
 		}
