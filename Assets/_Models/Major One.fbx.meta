@@ -1,40 +1,39 @@
 fileFormatVersion: 2
-guid: 63fb372912db1f049b47ca469726f1d8
+guid: 5d5159342fed2ca40975fb0bd643409c
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCube1
-    100004: pCube3
-    100006: pCube4
-    100008: pCube5
-    100010: pCube6
-    100012: pCube7
+    100002: major1Maya_pCube1
+    100004: major1Maya_pCube3
+    100006: major1Maya_pCube4
+    100008: major1Maya_pCube5
+    100010: major1Maya_pCube6
+    100012: major1Maya_pCube7
+    100014: major1Maya_pCube8
+    100016: transform68
+    100018: transform69
+    100020: transform70
+    100022: transform71
+    100024: transform72
+    100026: transform73
     400000: //RootNode
-    400002: pCube1
-    400004: pCube3
-    400006: pCube4
-    400008: pCube5
-    400010: pCube6
-    400012: pCube7
-    2300000: pCube1
-    2300002: pCube3
-    2300004: pCube4
-    2300006: pCube5
-    2300008: pCube6
-    2300010: pCube7
-    3300000: pCube1
-    3300002: pCube3
-    3300004: pCube4
-    3300006: pCube5
-    3300008: pCube6
-    3300010: pCube7
-    4300000: pCube1
-    4300002: pCube3
-    4300004: pCube4
-    4300006: pCube5
-    4300008: pCube6
-    4300010: pCube7
+    400002: major1Maya_pCube1
+    400004: major1Maya_pCube3
+    400006: major1Maya_pCube4
+    400008: major1Maya_pCube5
+    400010: major1Maya_pCube6
+    400012: major1Maya_pCube7
+    400014: major1Maya_pCube8
+    400016: transform68
+    400018: transform69
+    400020: transform70
+    400022: transform71
+    400024: transform72
+    400026: transform73
+    2300000: major1Maya_pCube8
+    3300000: major1Maya_pCube8
+    4300000: major1Maya_pCube8
     9500000: //RootNode
   materials:
     importMaterials: 1
